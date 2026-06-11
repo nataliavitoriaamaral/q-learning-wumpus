@@ -35,6 +35,8 @@ Para visualizar o processo de aprendizado, foi plotado o histórico de recompens
 * **Mundo 1 (Azul):** O agente parte do zero e consegue estabilizar sua política em recompensas positivas rapidamente, por volta do episódio 300.
 * **Mundo 2 (Laranja):** Fica evidente o impacto da **transferência negativa**. O agente passa centenas de episódios preso em recompensas extremamente baixas enquanto "desaprende" o viés geográfico do mapa anterior. A curva só começa a subir de forma consistente após o episódio 600, evidenciando o tempo necessário para sobrescrever os valores da tabela Q com os novos hiperparâmetros.
 
+Para entender a fundo a teoria e os resultados, leia a análise completa do experimento.
+
 ## Tecnologias Utilizadas
 * **Python** (Lógica do ambiente e Q-Learning)
 * **NumPy** (Operações de matriz e argmax)
