@@ -26,6 +26,15 @@ O projeto visa analisar o comportamento do agente ao tentar reutilizar conhecime
 * Taxa de aprendizado aumentada de '0.15' para '0.50' para sobrescrever valores Q antigos rapidamente.
 * Taxa de exploração resetada para '1.0' com um decay mais lento ('0.999'), forçando a re-exploração do novo mapa.
 
+### Resultados Visuais
+
+Para visualizar o processo de aprendizado, foi plotado o histórico de recompensas por episódio. Como o agente utiliza a estratégia $\epsilon$-greedy, os dados brutos (linhas claras) apresentam alta variância devido à exploração aleatória. A aplicação de uma **média móvel de 50 episódios** (linhas escuras) revela a verdadeira curva de aprendizado:
+
+![Curvas de Aprendizado: Mundo 1 e Mundo 2](grafico_transferencia.png)
+
+* **Mundo 1 (Azul):** O agente parte do zero e consegue estabilizar sua política em recompensas positivas rapidamente, por volta do episódio 300.
+* **Mundo 2 (Laranja):** Fica evidente o impacto da **transferência negativa**. O agente passa centenas de episódios preso em recompensas extremamente baixas enquanto "desaprende" o viés geográfico do mapa anterior. A curva só começa a subir de forma consistente após o episódio 600, evidenciando o tempo necessário para sobrescrever os valores da tabela Q com os novos hiperparâmetros.
+
 ## Tecnologias Utilizadas
 * **Python** (Lógica do ambiente e Q-Learning)
 * **NumPy** (Operações de matriz e argmax)
